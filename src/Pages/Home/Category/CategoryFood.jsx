@@ -9,10 +9,15 @@ import foodSlider2 from '../../../assets/home/slide2.jpg';
 import foodSlider3 from '../../../assets/home/slide3.jpg';
 import foodSlider4 from '../../../assets/home/slide4.jpg';
 import foodSlider5 from '../../../assets/home/slide5.jpg';
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const CategoryFood = () => {
   return (
-    <div>
+    <div className="max-w-4xl mx-auto">
+      <SectionTitle
+      subHeading={'---From 11:00am to 10:00pm---'}
+      heading={'ORDER ONLINE'}
+      ></SectionTitle>
        <Swiper
         slidesPerView={4}
         spaceBetween={30}
