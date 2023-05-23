@@ -1,3 +1,5 @@
+import moment from "moment/moment";
+
 const Footer = () => {
   return (
     <div>
@@ -9,9 +11,9 @@ const Footer = () => {
             <br />
             +88 123456789
             <br />
-            Mon - Fri: 08:00 - 22:00
+            {moment().add(6, `days`).calendar()} 
             <br />
-            Sat - Sun: 10:00 - 23:00
+            {moment().add(4, `days`).calendar()} 
           </p>
         </div>
         <div>
