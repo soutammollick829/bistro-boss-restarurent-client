@@ -1,20 +1,13 @@
-import { useEffect, useState } from "react";
+
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import RecommendCard from "../ChefRecommendCard/RecommendCard";
+import useMenu from "../../../Hooks/useMenu";
 
 
 const ChefRecommends = () => {
 
-    const [recommends, setRecommends] = useState([]);
-
-    useEffect(()=>{
-        fetch(`menu.json`)
-        .then(res => res.json())
-        .then(data => {
-          const chefRecommends = data.filter(item => item.category === 'salad');
-          setRecommends(chefRecommends)
-        })
-    },[])
+    const [menu] = useMenu();
+    const recommends = menu.filter(item => item.category === 'salad');
     return (
         <div>
             <SectionTitle
