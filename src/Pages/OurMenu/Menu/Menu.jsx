@@ -1,11 +1,9 @@
 import { Helmet } from "react-helmet-async";
-import CoverImage from "../../Shared/CoverMenu&pages/CoverImage";
 import image from "../../../assets/menu/banner3.jpg";
 import dessertImg from "../../../assets/menu/dessert-bg.jpeg";
 import pizzaImg from "../../../assets/menu/pizza-bg.jpg";
 import saladImg from "../../../assets/menu/salad-bg.jpg";
 import soupImg from "../../../assets/menu/soup-bg.jpg";
-
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useMenu from "../../../Hooks/useMenu";
 import MenuCategory from "../MenuCategory";

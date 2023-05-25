@@ -17,7 +17,7 @@ const Navbar = () => {
         <Link to='/menu'>OUR MENU</Link>
         </li>
         <li className="font-bold hover:text-[#EEFF25]">
-        <Link to='/order'>OUR SHOP</Link>
+        <Link to='/order/salad'>OUR SHOP</Link>
         </li>
     </>
   );
