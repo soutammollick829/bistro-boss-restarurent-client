@@ -3,31 +3,22 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const navOptions = (
     <>
-      <Link>
+      
         <li className="font-bold hover:text-[#EEFF25] ml-8">
-          <a>HOME</a>
+        <Link to='/'>HOME</Link>
         </li>
-      </Link>
-      <Link>
         <li className="font-bold hover:text-[#EEFF25]">
-          <a>CONTACT US</a>
+        <Link to='/'>CONTACT US</Link>
         </li>
-      </Link>
-      <Link>
         <li className="font-bold hover:text-[#EEFF25]">
-          <a>DASHBOARD</a>
+        <Link to='/'>DASHBOARD</Link>
         </li>
-      </Link>
-      <Link to='/menu'>
         <li className="font-bold hover:text-[#EEFF25]">
-          <a>OUR MENU</a>
+        <Link to='/menu'>OUR MENU</Link>
         </li>
-      </Link>
-      <Link>
         <li className="font-bold hover:text-[#EEFF25]">
-          <a>OUR SHOP</a>
+        <Link to='/order'>OUR SHOP</Link>
         </li>
-      </Link>
     </>
   );
   return (
