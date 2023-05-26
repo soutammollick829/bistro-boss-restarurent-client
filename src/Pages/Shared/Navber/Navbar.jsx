@@ -3,22 +3,21 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const navOptions = (
     <>
-      
-        <li className="font-bold hover:text-[#EEFF25] ml-8">
-        <Link to='/'>HOME</Link>
-        </li>
-        <li className="font-bold hover:text-[#EEFF25]">
-        <Link to='/'>CONTACT US</Link>
-        </li>
-        <li className="font-bold hover:text-[#EEFF25]">
-        <Link to='/'>DASHBOARD</Link>
-        </li>
-        <li className="font-bold hover:text-[#EEFF25]">
-        <Link to='/menu'>OUR MENU</Link>
-        </li>
-        <li className="font-bold hover:text-[#EEFF25]">
-        <Link to='/order/salad'>OUR SHOP</Link>
-        </li>
+      <li className="font-bold hover:text-[#EEFF25] ml-8">
+        <Link to="/">HOME</Link>
+      </li>
+      <li className="font-bold hover:text-[#EEFF25]">
+        <Link to="/">CONTACT US</Link>
+      </li>
+      <li className="font-bold hover:text-[#EEFF25]">
+        <Link to="/">DASHBOARD</Link>
+      </li>
+      <li className="font-bold hover:text-[#EEFF25]">
+        <Link to="/menu">OUR MENU</Link>
+      </li>
+      <li className="font-bold hover:text-[#EEFF25]">
+        <Link to="/order/salad">OUR SHOP</Link>
+      </li>
     </>
   );
   return (
@@ -60,7 +59,9 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <Link to='/login'>
+          <button className="btn">Login</button>
+        </Link>
       </div>
     </div>
   );
