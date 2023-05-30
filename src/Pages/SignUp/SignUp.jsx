@@ -1,13 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import singUpImg from '../../assets/others/authentication.gif';
 import signUpCover from '../../assets/others/authentication.png'
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const SignUp = () => {
     const {createUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+
 
     const handelSignUp = event =>{
         event.preventDefault();
@@ -15,6 +18,7 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        console.log(name);
         if(password.length < 6){
             Swal.fire({
                 icon: 'error',
@@ -35,6 +39,7 @@ const SignUp = () => {
                     'success'
                   ) 
             }
+            navigate('/');
         })
         .then(error =>{
             console.error(error);
@@ -45,6 +50,9 @@ const SignUp = () => {
       className="hero min-h-screen"
       style={{ backgroundImage: `url("${signUpCover}")` }}
     >
+      <Helmet>
+        <title>Bistro Boss Restaurant /Sign up</title>
+      </Helmet>
       <div className="max-w-3xl mx-auto">
         <div className="hero min-h-screen">
           <div className="hero-content flex-col lg:flex-row-reverse">
