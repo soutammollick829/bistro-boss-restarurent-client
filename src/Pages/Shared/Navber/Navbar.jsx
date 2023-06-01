@@ -1,15 +1,18 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../../Hooks/useCart";
 
 const Navbar = () => {
-  const {user,logOut}=useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart();
 
-  const handelLogOut = ()=>{
+  const handelLogOut = () => {
     logOut()
-    .then(()=>{})
-    .then(error => console.log(error))
-  }
+      .then(() => {})
+      .then((error) => console.log(error));
+  };
   const navOptions = (
     <>
       <li className="font-bold hover:text-[#EEFF25] ml-8">
@@ -18,14 +21,22 @@ const Navbar = () => {
       <li className="font-bold hover:text-[#EEFF25]">
         <Link to="/">CONTACT US</Link>
       </li>
-      <li className="font-bold hover:text-[#EEFF25]">
+      {/* <li className="font-bold hover:text-[#EEFF25]">
         <Link to="/">DASHBOARD</Link>
-      </li>
+      </li> */}
       <li className="font-bold hover:text-[#EEFF25]">
         <Link to="/menu">OUR MENU</Link>
       </li>
       <li className="font-bold hover:text-[#EEFF25]">
         <Link to="/order/salad">OUR SHOP</Link>
+      </li>
+      <li>
+        <Link to="/">
+          <button className="btn btn-sm gap-2">
+            <FaShoppingCart></FaShoppingCart>
+            <div className="badge badge-secondary">+{cart?.length || 0}</div>
+          </button>
+        </Link>
       </li>
     </>
   );
@@ -57,9 +68,9 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="btn btn-ghost normal-case text-xl inline-block">
-          <span className="text-2xl font-extrabold">BISTRO BOSS</span>
+          <span className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-pink-400">BISTRO BOSS</span>
           <br></br>
-          <span className="uppercase text-base font-semibold">
+          <span className="uppercase text-base font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-pink-400">
             R e s t a u r a n t
           </span>
         </a>
@@ -68,16 +79,19 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
       <div className="navbar-end">
-        {
-          user? <>
-          <button onClick={handelLogOut} className="btn">Log Out</button>
-          </>:
+        {user ? (
           <>
-          <Link to='/login'>
-          <button className="btn">Login</button>
-        </Link>
+            <button onClick={handelLogOut} className="btn">
+              Log Out
+            </button>
           </>
-        }
+        ) : (
+          <>
+            <Link to="/login">
+              <button className="btn">Login</button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
